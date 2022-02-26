@@ -1,7 +1,7 @@
 # COURSE_2022-Udemy-Understanding-Type--Script
 https://www.udemy.com/course/understanding-typescript/
 
-- [ ] Section 1
+- [x] Section 1
 - [ ] Section 2
 - [ ] Section 3
 - [ ] Section 4
