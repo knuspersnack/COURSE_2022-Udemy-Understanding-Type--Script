@@ -13,6 +13,6 @@ const person: {
 const test = generateError("test");
 console.log(test)
 
-function generateError(message:string):never {
-  throw {}
+function generateError(message:string) {
+  console.log("test23")
 }
