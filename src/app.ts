@@ -1,18 +1,17 @@
-const person: {
-  name: string,
-  age: number,
-  hobbies: string[];
-  role: [number, string, string]
-} = {
-  name: "test",
-  age: 21,
-  hobbies: ['sports', 'cooking'],
-  role: [2, 'author', 'georg']
+type Admin = {
+    name: string;
+    privileges: string[];
 }
 
-const test = generateError("test");
-console.log(test)
+type Employee = {
+    name: string;
+    startDate: Date;
+}
 
-function generateError(message:string) {
-  console.log("test23")
+type ElevatedEmployee = Admin & Employee;
+
+const e1: ElevatedEmployee = {
+    name: 'Max',
+    privileges: ['create-server'],
+    startDate: new Date();
 }
