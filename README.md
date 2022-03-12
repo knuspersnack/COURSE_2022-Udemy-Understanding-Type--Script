@@ -17,3 +17,7 @@ https://www.udemy.com/course/understanding-typescript/
 - [ ] Section 14
 - [ ] Section 15
 - [ ] Section 16
+
+### How to run code:
+- tsc -w (im Ordner)
+- npm start
