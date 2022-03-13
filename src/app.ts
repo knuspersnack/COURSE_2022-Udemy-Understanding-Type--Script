@@ -1,3 +1,5 @@
+// ---------------------- determine type - Type Guards
+
 type Admin = {
   name: string;
   privileges: string[];
@@ -29,6 +31,8 @@ function add(a: Combinable, b: Combinable) {
   return a + b;
 }
 
+// ---------------------- determine type - Type Guards
+
 class Car {
   drive() {
     console.log('Driving...');
@@ -58,6 +62,8 @@ function useVehicle(vehicle: Vehicle) {
 useVehicle(v1);
 useVehicle(v2);
 
+// ----------------- determine type by known property - Discriminated Union
+
 interface Bird {
   type: 'bird';
   flyingSpeed: number;
@@ -82,4 +88,42 @@ function moveAnimal(animal: Animal) {
   console.log('Moving with speed : ' + speed);
 }
 
-moveAnimal({type: 'bird', flyingSpeed: 10});
+moveAnimal({ type: 'bird', flyingSpeed: 10 });
+
+//---------------- Index Property
+interface ErrorContainer {
+  [prop: string]: string;
+}
+
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email',
+  username: 'Georg',
+};
+
+// -------------------- Function Overloads
+function addOverload(a: number, b: number): number;
+function addOverload(a: string, b: string): string;
+function addOverload(a: Combinable, b: Combinable): Combinable {
+  if (typeof a === 'string' || typeof b === 'string') {
+    return a.toString() + b.toString();
+  }
+
+  return a + b;
+}
+
+const result = addOverload('hello', 'georg');
+
+// -------------------- Optional Chaining
+
+const fetchedUserData = {
+  id: 'u1',
+  name: 'Max',
+  job: { title: 'CEO', description: 'My own company' },
+};
+
+console.log(fetchedUserData?.job?.title);
+
+//   ---------------------- Nullish Coalscing
+const userInput = ''; 
+const storedDate = userInput ?? 'Default';
+console.log('storedDate: ' + storedDate);
